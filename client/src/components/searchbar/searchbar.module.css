@@ -1,0 +1,20 @@
+.SearchBar {
+    border: none;
+    outline: none;
+    padding: 3px;
+    /* line-height: 30px; */
+    margin-top: 3px;
+    border-radius: 2px;
+}
+
+.SearchBtn {
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: rgb(4, 90, 4);
+    /* border-radius: 2px; */
+}
+
+.SearchSpace {
+    background-color: rgba(251, 251, 255, 0.788);
+}

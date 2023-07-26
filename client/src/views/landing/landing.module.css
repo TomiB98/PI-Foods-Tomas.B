@@ -1,0 +1,36 @@
+.landing {
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+.btnHome {
+  cursor: pointer;
+  margin-left: 100px;
+  margin-top: 100px;
+  display: flex;
+  padding: 5px 30px;
+  /* text-decoration: none; */
+  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Poppins', sans-serif; */
+  font-size: 30px;
+  font-weight: 900;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: rgb(7, 0, 0);
+  color: #9c0202;
+  background: #013b17;
+  transition: 1s;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.829);
+  transform: skewX(-8deg);
+  /* border:none; */
+  border: solid rgb(7, 7, 0) 2px;
+  border-radius: 2px;
+}
+
+.btnHome:focus {
+  outline: none;
+}
+
+.btnHome:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #680202d7;
+}
