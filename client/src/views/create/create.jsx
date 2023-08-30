@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import style from './create.module.css'
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux' 
+import { useDispatch } from 'react-redux'
 import { addRecipe } from '../../redux/actions';
 
 const Create = () => {
@@ -9,7 +9,7 @@ const Create = () => {
     const dispatch = useDispatch()
 
     const [input, setInput] = useState({
-        image: 'https://static.vecteezy.com/system/resources/previews/007/078/789/non_2x/fast-food-set-icons-fastfood-background-doodle-fast-food-icons-seamless-pattern-with-food-icons-food-icons-on-white-background-hand-drown-pattern-with-fast-food-icons-free-vector.jpg',
+        image: '',
         name: '',
         summary: '',
         healthScore: '',
@@ -17,7 +17,7 @@ const Create = () => {
     })
 
     const [error, setError] = useState({
-        //image: '',
+        image: '',
         name: 'Type recipe name',
         summary: 'Type recipe summary',
         healthScore: 'Type recipe healthScore',
@@ -26,6 +26,9 @@ const Create = () => {
 
     function validate(input) {
         const error = {}
+        if (!input.image) {
+            error.image = 'The image is required!'
+        }
         if (input.name.length < 1) {
             error.name = 'The name is required!'
         }
@@ -59,7 +62,7 @@ const Create = () => {
         alert('Recipe has been created succesfully, create one more or go back to home')
         setInput({
             name: '',
-            //image: '',
+            image: '',
             summary: '',
             healthScore: '',
             steps: '',
@@ -67,44 +70,60 @@ const Create = () => {
     }
 
     return (
-        <div>
+        <div className={style.card}>
             <h1>Create a Recipe!</h1>
-            <form onSubmit={handleSubmit} className={style.form}>
-                {/* <div >
-                    <label className={style.label}>Image: </label>
-                    <input className={style.input} name='image' value={input.value} onChange={handleChange} placeholder='Insert Recipe Image' />
-                </div> */}
+            <form onSubmit={handleSubmit} className={style.formulario}>
+                <div >
+                    <div>
+                        <label className={style.label}>•Image: </label>
+                        {/* <input className={style.input} name='image' value={input.value} onChange={handleChange} placeholder='Insert Recipe Image' /> */}
+                        <input
+                            type="file" // Cambia el tipo de entrada a "file" para permitir la selección de imágenes
+                            onChange={handleChange}// Llama a la función handleImageUpload cuando cambie la imagen
+                            name="image"
+                            accept="image/*" // Restringe la selección de archivos a imágenes solamente
+                        />
+                    </div>
+                    {input.image && (
+                        <img
+                            src={input.image}
+                            alt=""
+                            className={style.uploadedImage}
+                        />
+                    )}
+                </div>
+                {error.image && <p className={style.errors}>{error.image}</p>}
 
                 <div className={style.indiv}>
-                    <label className={style.label}>Name: </label>
+                    <label className={style.label}>•Name: </label>
                     <input className={style.input} name='name' value={input.value} onChange={handleChange} placeholder='Type a Recipe Name' />
-                    {error.name && <p className={style.errors}>{error.name}</p>}
                 </div>
+                {error.name && <p className={style.errors}>{error.name}</p>}
 
                 <div className={style.indiv}>
-                    <label className={style.label}>Summary: </label>
+                    <label className={style.label}>•Summary: </label>
                     <input className={style.input} name='summary' value={input.value} onChange={handleChange} placeholder='Describe Recipe' />
-                    {error.summary && <p className={style.errors}>{error.summary}</p>}
                 </div>
+                {error.summary && <p className={style.errors}>{error.summary}</p>}
 
                 <div className={style.indiv}>
-                    <label className={style.label}>HealthScore: </label>
+                    <label className={style.label}>•HealthScore: </label>
                     <input className={style.input} name='healthScore' value={input.value} onChange={handleChange} placeholder='Insert healthScore' />
-                    {error.healthScore && <p className={style.errors}>{error.healthScore}</p>}
                 </div>
+                {error.healthScore && <p className={style.errors}>{error.healthScore}</p>}
 
                 <div className={style.indiv}>
-                    <label className={style.label}>Steps: </label>
+                    <label className={style.label}>•Steps: </label>
                     <input className={style.input} name='steps' value={input.value} onChange={handleChange} placeholder='Describe a Recipe Steps' />
-                    {error.steps && <p className={style.errors}>{error.steps}</p>}
                 </div>
+                {error.steps && <p className={style.errors}>{error.steps}</p>}
 
-                <div className={style.btn2}>
-                    {error.name || error.summary || error.steps || error.healthScore ? null : <button className={style.btnSubmit} type='submit'>Submit</button>}
-                    <Link to='/home'>
-                        <button className={style.btnSubmit}>Home</button>
-                    </Link>
-                </div>
+                {/* <div className={style.btn2}> */}
+                {error.name || error.summary || error.steps || error.healthScore ? null : <button className={style.btnSubmit} type='submit'>Submit</button>}
+                <Link to='/home'>
+                    <button className={style.btnSubmit}>Home</button>
+                </Link>
+                {/* </div> */}
             </form>
         </div>
     )
