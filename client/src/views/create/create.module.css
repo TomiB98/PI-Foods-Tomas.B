@@ -1,7 +1,12 @@
 .card {
     width: 800px;
     height: auto;
-    padding: 15px;
+    /* padding: 15px; */
+    padding-top: -150em;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    margin-left: 250px;
+    margin-top: 80px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -9,11 +14,12 @@
     flex-direction: column;
     /* background-image: url('../../asets/fast-food-set-icons-fastfood-background-doodle-fast-food-icons-seamless-pattern-with-food-icons-food-icons-on-white-background-hand-drown-pattern-with-fast-food-icons-free-vector.jpg'); */
     background: #01471600;
-    border-radius: 20px;
-    border: solid rgb(7, 7, 0) 2px;
+    border-radius: 5px;
+    /* border: 0; */
+    /* border: solid rgb(7, 7, 0) 2px; */
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-      rgba(0, 0, 0, 0.07) 0px 16px 16px;
+        rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+        rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .formulario {
@@ -23,11 +29,11 @@
     align-items: self-start;
     justify-content: center;
     /* margin-left: 50px; */
-    border: solid rgb(7, 7, 0) 1px;
+    border: solid #5f5f5fc2 1px;
     padding: 25px;
-    border-radius: 20px;
-    background: #919090c2;
-    box-shadow: 5px 5px 15px rgba(110, 2, 2, 0.829);
+    border-radius: 5px;
+    background: #b9b8b8c2;
+    box-shadow: 5px 5px 50px black;
 }
 
 .uploadedImage {
@@ -37,7 +43,7 @@
 
 .errors {
     color: rgb(82, 3, 3);
-    
+
     /* font-weight: 400; */
     /* font-size: 15px; */
     /* margin-left: 30px;
@@ -83,16 +89,17 @@
     cursor: pointer;
     /* margin-left: 100px;
     margin-top: 100px; */
+    height: 35px;
     display: flex;
-    padding: 5px 30px;
-    margin-bottom: 10px;
+    padding: 1px 15px;
+    margin-bottom: 2px;
     margin-top: 40px;
     /* text-decoration: none; */
     font-family: 'Courier New', Courier, monospace;
 
 
     /* font-family: 'Poppins', sans-serif; */
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 900;
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: rgb(7, 0, 0);
@@ -101,18 +108,32 @@
     color: #9c0202;
     background: #013b17;
     transition: 1s;
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.829);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.829);
     transform: skewX(-8deg);
     /* border:none; */
-    border: solid rgb(7, 7, 0) 2px;
-    border-radius: 2px;
-  }
-  
-  .btnSubmit:focus {
+    border: solid rgb(7, 7, 0) 1px;
+    border-radius: 5px;
+}
+
+.btnSubmit:focus {
     outline: none;
-  }
-  
-  .btnSubmit:hover {
+}
+
+.btnSubmit:hover {
     transition: 0.5s;
-    box-shadow: 10px 10px 0 #680202d7;
-  }
+    box-shadow: 10px 10px 10px black;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    margin-top: 10px;
+    font-weight: 1000;
+    /* color: #3FFF00; */
+    color: #9c0202;
+    /* text-shadow: 5px 5px 10px #FFFF00; */
+    text-shadow: 5px 5px 10px black;
+    /* text-decoration: solid rgb(252, 247, 247) 200px; */
+    -webkit-text-stroke: 3px;
+    -webkit-text-stroke-color: rgb(7, 0, 0);
+}

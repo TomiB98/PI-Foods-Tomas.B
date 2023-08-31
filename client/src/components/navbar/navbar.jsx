@@ -1,45 +1,60 @@
 import SearchBar from "../searchbar/searchbar";
 import style from './navbar.module.css'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { filterByOrigin, orderByHealthScore, orderByName } from '../../redux/actions';
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+//import { useDispatch } from 'react-redux'
+//import image from '../../asets/5092154.png'
+import image2 from '../../asets/6150d0cfaabb9b2fc29008ee0f8cf099-icono-de-trazo-de-comida-rapida-de-hamburguesa.png'
+//import { filterByOrigin, orderByHealthScore, orderByName } from '../../redux/actions';
 
 const Navbar = ({ handleChange, handleSubmit }) => {
 
-    const dispatch = useDispatch()
+    const location = useLocation();
+    const navigate = useNavigate();
+    //const dispatch = useDispatch()
 
-    const handleOrder = (event) => {
-        dispatch(orderByName(event.target.value));
-    };
+    // const handleOrder = (event) => {
+    //     dispatch(orderByName(event.target.value));
+    // };
 
-    const handleOrderHealthScore = (event) => {
-        dispatch(orderByHealthScore(event.target.value));
-    };
+    // const handleOrderHealthScore = (event) => {
+    //     dispatch(orderByHealthScore(event.target.value));
+    // };
 
-    const handleFilterOrigin = (event) => {
-        dispatch(filterByOrigin(event.target.value));
-    };
+    // const handleFilterOrigin = (event) => {
+    //     dispatch(filterByOrigin(event.target.value));
+    // };
 
+    const handleNavigateHome = () => {
+        navigate('/home')
+    }
 
+    const handleNavigateLand = () => {
+        navigate('/')
+    }
 
     return (
         <div className={style.navbar}>
 
+            <img onClick={handleNavigateLand} className={style.img} src={image2} alt="" />
+
             <div>
-                <h1>Recipes</h1>
+                <p onClick={handleNavigateHome} className={style.hf}>HenryFoods</p>
             </div>
 
-            <div className={style.navbarLow}>
 
-                <div className={style.navbtnSearch}>
-                    <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
+            <div className={style.navbtnSearch}>
+                {location.pathname === "/home" ? <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} /> : null}
 
-                    <Link to={`/create`}>
-                        <button className={style.btnCreate}>Create Recipe</button>
-                    </Link>
-                </div>
+            </div>
 
-                <div className={style.navSelect}>
+            <div className={style.btnCont}>
+                <Link to={`/create`}>
+                    {location.pathname === "/home" ? <button className={style.btnCreate}>New Recipe</button> : null}
+
+                </Link>
+            </div>
+
+            {/* <div className={style.navSelect}>
 
                     <div className={style.cont}>
                         <label className={style.label} htmlFor="origin">Filter by Origin</label>
@@ -69,9 +84,7 @@ const Navbar = ({ handleChange, handleSubmit }) => {
                         </select>
                     </div>
 
-                </div>
-
-            </div>
+                </div> */}
 
         </div>
     )

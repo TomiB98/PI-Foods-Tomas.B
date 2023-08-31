@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import style from './create.module.css'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { addRecipe } from '../../redux/actions';
 
@@ -120,11 +120,12 @@ const Create = () => {
 
                 {/* <div className={style.btn2}> */}
                 {error.name || error.summary || error.steps || error.healthScore ? null : <button className={style.btnSubmit} type='submit'>Submit</button>}
-                <Link to='/home'>
-                    <button className={style.btnSubmit}>Home</button>
-                </Link>
                 {/* </div> */}
             </form>
+            
+                <NavLink to='/home' style={{ textDecoration: "none", color: "inherit" }}>
+                    <button className={style.btnSubmit}>Home</button>
+                </NavLink>
         </div>
     )
 }

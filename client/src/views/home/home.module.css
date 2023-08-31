@@ -3,14 +3,14 @@ body {
     /* background-image: url('../../asets/fast-food-seamless-background-in-cartoon-doodle-style-vector.jpg'); */
     /* background-color: #6c7175;
     background-image: linear-gradient(180deg, #6c7175 0%, #423c48 33%, #3b2a4a 66%, #45185e 100%); */
-    background-image: url('../../asets/italian-spaghetti-wallpaper-preview.jpg');
-    /* background-image: url('../../asets/FondoBlack.jpg'); */
-    
-    height: 70vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-image: url('../../asets/Fondo\ blanco.jpg'); */
+    background-image: url('../../asets/images (1).jpg');
+
+
+
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+
 
     /* background-size: cover;
     width: 98vw;
@@ -42,3 +42,91 @@ body {
     /* background-color: #6c7175;
     background-image: linear-gradient(180deg, #6c7175 0%, #423c48 33%, #3b2a4a 66%, #45185e 100%); */
 }
+
+.navSelect {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.cont {
+    margin-top: 20px;
+    margin-right: 5px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: row;
+    /* display: flex;
+    flex-direction: row;
+    margin-right: 50px; */
+}
+
+.label {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 2px;
+    color: rgb(5, 73, 5);
+    font-size: 20px;
+    font-weight: 200;
+    text-shadow: 2px 2px 10px rgba(63, 61, 61, 0);
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgb(5, 5, 5);
+    margin-bottom: 5px;
+}
+
+.select {
+    /* display: inline-block; */
+    /* margin-right: 2px; */
+    margin-left: 0px;
+    /* width: 100%; */
+    width: 150px;
+    cursor: pointer;
+    padding: 2px 4px;
+    height: 30px;
+    outline: 0;
+    /* border: 0; */
+    border-radius: 0px;
+    background: #8a898986;
+    color: rgb(61, 61, 59);
+    font-size: 1em;
+    color: rgb(61, 61, 59);
+    font-family: "Quicksand", sans-serif;
+    border: 2px solid rgb(61, 61, 59) 1px;
+    border-radius: 18px;
+    /* position: relative; */
+    transition: all 0.8s ease;
+
+    /* border: solid rgb(7, 7, 0) 1px;
+    background-color: rgba(251, 251, 255, 0.788);
+    text-align: center;
+    cursor: pointer; */
+}
+
+.select:hover {
+    /* background: #B1E8CD; */
+    background: #c4c3c386;
+}
+
+.cleanF {
+  margin-left: 10px;
+  /* width: 100%; */
+  width: 150px;
+  cursor: pointer;
+  /* padding: 2px 4px; */
+  height: 30px;
+  outline: 0; 
+  /* border-radius: 0px; */
+  background: #8a898986;
+  color: #7b7b7b;
+  font-size: 1em;
+  color: rgb(61, 61, 59);
+  font-family: "Quicksand", sans-serif;
+  border: 1px solid rgb(129, 129, 127);
+  border-radius: 18px;
+  /* position: relative;  */
+  transition: all 0.8s ease;
+}
+
+.cleanF:hover {
+    background: #c4c3c386;
+    transform: none;
+  }

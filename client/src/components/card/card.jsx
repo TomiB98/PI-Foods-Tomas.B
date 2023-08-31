@@ -11,10 +11,12 @@ const Card = ({ id, name, healthScore, steps, image }) => {
                 </Link>
 
             </div>
-            <h1 className={style.h2}>{name}</h1>
-            <div className={style.conteiner2}>
-                <h3>Steps: {steps.split('.').length}</h3> 
-                <h3>HealthScore: {healthScore}</h3>
+            <div>
+                <h1 className={style.h2}>{name}</h1>
+                <div className={style.conteiner2}>
+                    <h3>Steps: {steps.split('.').length}</h3>
+                    <h3>HealthScore: {healthScore}</h3>
+                </div>
             </div>
         </div>
     )

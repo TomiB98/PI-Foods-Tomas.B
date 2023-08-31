@@ -1,19 +1,37 @@
 .h1{
-    font-size: 50px;
+    margin-top: 58px;
+    /* font-size: 50px; */
     text-align: center;
-    color: aqua;
+    /* color: aqua; */
+
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(14, 95, 14);
+    border: solid #3b3a3a7a 1px;
+    background-color: rgba(167, 165, 165, 0.644);
+    border-radius: 3px;
+    /* border-left: solid #3b3a3a7a 0.09em;
+    border-right: solid #3b3a3a7a 0.09em; */
+    font-size: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    text-shadow: 2px 2px 10px rgba(63, 61, 61, 0);
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: rgb(5, 5, 5);
 }
 
 .h1D{
     font-size: 35px;
     text-align: center;
-    color: aqua;
+    color: rgb(14, 95, 14);
 }
 
 .contP{
     display: flex;
     flex-direction:column;
     align-items: center;
+    margin-top: 20px;
 }
 
 .cont{
@@ -21,25 +39,25 @@
     flex-direction: row;
     align-items: center;
     text-align: center;
-    border: 1px solid white;
+    border: 1px solid rgb(129, 129, 126);
     height: 310px;
     width: 700px;
-    background-color: rgba(214, 214, 214, 0.644);
+    background-color: rgba(167, 165, 165, 0.644);
     margin-left: 50px;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .cont img{
     height: 100%;
     width: 400px;
     margin-right: 50px;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .text{
-    border: 1px solid white;
-    background-color: rgba(214, 214, 214, 0.644);
-    border-radius: 10px;
+    border: 1px solid rgb(129, 129, 126);
+    background-color: rgba(167, 165, 165, 0.644);
+    border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -57,15 +75,16 @@
     cursor: pointer;
     /* margin-left: 100px;
     margin-top: 100px; */
+    height: 35px;
     display: flex;
-    padding: 5px 30px;
+    padding: 1px 15px;
     margin-bottom: 10px;
     /* text-decoration: none; */
     font-family: 'Courier New', Courier, monospace;
 
 
     /* font-family: 'Poppins', sans-serif; */
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 900;
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: rgb(7, 0, 0);
@@ -74,11 +93,11 @@
     color: #9c0202;
     background: #013b17;
     transition: 1s;
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.829);
+    box-shadow: 3px 3px 2px rgb(129, 129, 126);
     transform: skewX(-8deg);
     /* border:none; */
-    border: solid rgb(7, 7, 0) 2px;
-    border-radius: 2px;
+    border: solid rgb(7, 7, 0) 1px;
+    border-radius: 5px;
   }
   
   .btnHome:focus {
@@ -87,5 +106,5 @@
   
   .btnHome:hover {
     transition: 0.5s;
-    box-shadow: 10px 10px 0 #680202d7;
+    box-shadow: 5px 5px 10px black;
   }

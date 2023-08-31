@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, Link } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { getRecipeById, clearDetail } from '../../redux/actions'
 import style from './detail.module.css'
 
@@ -25,10 +25,10 @@ const Detail = () => {
                     <img src={myRecipe.image} alt="" />
                     <div>
                         <h1 className={style.h1D}>Diets</h1>
-                        <h2>Vegan: {myRecipe.vegan === true ? 'True' : 'False'}</h2>
-                        <h2>GlutenFree: {myRecipe.glutenFree === true ? 'True' : 'False'}</h2>
-                        <h2>DairyFree: {myRecipe.dairyFree === true ? 'True' : 'False'}</h2>
-                        <h2>Vegetarian : {myRecipe.vegetarian === true ? 'True' : 'False'}</h2>
+                        <h2>•Vegan: {myRecipe.vegan === true ? '☑️' : '❌'}</h2>
+                        <h2>•GlutenFree: {myRecipe.glutenFree === true ? '☑️' : '❌'}</h2>
+                        <h2>•DairyFree: {myRecipe.dairyFree === true ? '☑️' : '❌'}</h2>
+                        <h2>•Vegetarian : {myRecipe.vegetarian === true ? '☑️' : '❌'}</h2>
                     </div>
                 </div>
             </div>
@@ -40,9 +40,9 @@ const Detail = () => {
                     <h2>Steps:</h2>
                     <p>{myRecipe.steps}</p>
                 </div>
-                <Link to={'/home'}>
+                <NavLink to={'/home'} style={{ textDecoration: "none", color: "inherit" }}>
                     <button className={style.btnHome}>Home</button>
-                </Link>
+                </NavLink>
             </div>
             
         </div>
