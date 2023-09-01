@@ -52,6 +52,10 @@ const getDBInfo = async () => {
                 summary: recipe.summary,
                 healthScore: recipe.healthScore,
                 image: recipe.image,
+                vegetarian: recipe.vegetarian,
+                vegan: recipe.vegan,
+                glutenFree: recipe.glutenFree,
+                dairyFree: recipe.dairyFree,
                 steps: recipe.steps.toString(),
             }
         });

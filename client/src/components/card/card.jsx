@@ -1,7 +1,7 @@
 import style from './card.module.css'
 import { Link } from 'react-router-dom'
 
-const Card = ({ id, name, healthScore, steps, image }) => {
+const Card = ({ id, name, healthScore, steps, image, vegan, glutenFree, dairyFree, vegetarian }) => {
 
     return (
         <div className={style.card} >
@@ -16,6 +16,16 @@ const Card = ({ id, name, healthScore, steps, image }) => {
                 <div className={style.conteiner2}>
                     <h3>Steps: {steps.split('.').length}</h3>
                     <h3>HealthScore: {healthScore}</h3>
+                </div>
+                <div className={style.diets}>
+                    <div>
+                        <h3>•Vegan: {vegan === true ? '☑️' : '❌'}</h3>
+                        <h3>•GlutenFree: {glutenFree === true ? '☑️' : '❌'}</h3>
+                    </div>
+                    <div>
+                        <h3>•DairyFree: {dairyFree === true ? '☑️' : '❌'}</h3>
+                        <h3>•Vegetarian : {vegetarian === true ? '☑️' : '❌'}</h3>
+                    </div>
                 </div>
             </div>
         </div>

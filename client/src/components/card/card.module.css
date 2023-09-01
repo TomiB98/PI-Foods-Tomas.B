@@ -50,7 +50,8 @@
 } */
 
 .card {
-    background-image: url('../../asets/98c899f3022d0a82affd2eade791b0ff.jpg');
+    /* background-image: url('../../asets/98c899f3022d0a82affd2eade791b0ff.jpg'); */
+    background-color: rgba(117, 115, 115, 0.685);
     background-size: cover;
     width: 100%;
     height: 250px;
@@ -83,12 +84,11 @@
     justify-content: flex-start;
     margin-top: 0px;
     width: 320px;
-    height:100%;
-    margin-left: -2.8em;
+    height: 100%;
+    margin-left: -0.3em;
     object-fit: cover;
     border-radius: 3px
-
-    /* width: 100%;
+        /* width: 100%;
     height: 100%;
     border-radius: 17px;width: 250px; */
 
@@ -110,5 +110,10 @@ h3 {
     flex-direction: row;
     font-size: 16px;
     font-weight: 1000;
-    margin-left: 40px;
+    margin-left: 20px;
+}
+
+.diets {
+    display: flex;
+    flex-direction: row;
 }

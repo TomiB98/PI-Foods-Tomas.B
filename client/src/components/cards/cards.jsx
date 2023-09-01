@@ -9,7 +9,7 @@ const Cards = () => {
     const allRecipes = useSelector((state) => state.allRecipes)
 
     const [page, setPage] = useState(1)
-    const [perPage, setPerPage] = useState(8) //8
+    const [perPage, setPerPage] = useState(6) //8
 
     const maximo = allRecipes ? allRecipes.length / perPage : 0;
     // if (!allRecipes) {
@@ -34,6 +34,10 @@ const Cards = () => {
                             healthScore={recipe.healthScore}
                             steps={recipe.steps}
                             image={recipe.image}
+                            vegan={recipe.vegan} 
+                            glutenFree={recipe.glutenFree} 
+                            dairyFree={recipe.dairyFree} 
+                            vegetarian={recipe.vegetarian}
                         />
                     })
                 }

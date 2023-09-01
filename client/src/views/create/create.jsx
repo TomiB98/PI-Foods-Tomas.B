@@ -13,6 +13,10 @@ const Create = () => {
         name: '',
         summary: '',
         healthScore: '',
+        vegan: '',
+        glutenFree: '',
+        dairyFree: '',
+        vegetarian: '',
         steps: ''
     })
 
@@ -45,28 +49,57 @@ const Create = () => {
     }
 
     function handleChange(event) {
-        setInput({
-            ...input,
-            [event.target.name]: event.target.value
+        if (event.target.name === "image") {
+            const imageFile = event.target.files[0];
+            const imageUrl = URL.createObjectURL(imageFile);
+            setInput({
+                ...input,
+                image: imageUrl,
+            });
+        } else {
+            setInput({
+                ...input,
+                [event.target.name]: event.target.value,
+            });
+        }
+        // setInput({
+        //     ...input,
+        //     [event.target.name]: event.target.value
 
-        })
+        // })
         setError(validate({
             ...input,
             [event.target.name]: event.target.value
         }))
     }
 
+    const handleSelectDiet = (event) => {
+        setInput({
+            ...input,
+            vegan: event.target.value,
+            glutenFree: event.target.value,
+            dairyFree: event.target.value,
+            vegetarian: event.target.value,
+        });
+    };
+
     function handleSubmit(event) {
         event.preventDefault()
         dispatch(addRecipe(input))
-        alert('Recipe has been created succesfully, create one more or go back to home')
+
         setInput({
             name: '',
             image: '',
             summary: '',
             healthScore: '',
+            vegan: '',
+            glutenFree: '',
+            dairyFree: '',
+            vegetarian: '',
             steps: '',
         })
+
+        alert('Recipe has been created succesfully')
     }
 
     return (
@@ -118,14 +151,56 @@ const Create = () => {
                 </div>
                 {error.steps && <p className={style.errors}>{error.steps}</p>}
 
+                <div className={style.pSelectCont}>
+                    <p className={style.label}>•Diets:</p>
+                    <div className={style.allSelectCont}>
+
+                        <div className={style.selectIndv}>
+                            <label >-Vegan-</label>
+                            <select onChange={handleSelectDiet} className={style.select} >
+                                <option value=""> ┅ </option>
+                                <option value='false'>✘</option>
+                                <option value='true'>✔</option>
+                            </select>
+                        </div>
+
+                        <div className={style.selectIndv}>
+                            <label >-GlutenFree-</label>
+                            <select onChange={handleSelectDiet} className={style.select} >
+                                <option value=""> ┅ </option>
+                                <option value='false'>✘</option>
+                                <option value='true'>✔</option>
+                            </select>
+                        </div>
+
+                        <div className={style.selectIndv}>
+                            <label >-DairyFree-</label>
+                            <select onChange={handleSelectDiet} className={style.select}>
+                                <option value=""> ┅ </option>
+                                <option value='false'>✘</option>
+                                <option value='true'>✔</option>
+                            </select>
+                        </div>
+
+                        <div className={style.selectIndv}>
+                            <label >-Vegetarian-</label>
+                            <select onChange={handleSelectDiet} className={style.select} >
+                                <option value=""> ┅ </option>
+                                <option value={false}>✘</option>
+                                <option value={true}>✔</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 {/* <div className={style.btn2}> */}
                 {error.name || error.summary || error.steps || error.healthScore ? null : <button className={style.btnSubmit} type='submit'>Submit</button>}
                 {/* </div> */}
             </form>
-            
-                <NavLink to='/home' style={{ textDecoration: "none", color: "inherit" }}>
-                    <button className={style.btnSubmit}>Home</button>
-                </NavLink>
+
+            <NavLink to='/home' style={{ textDecoration: "none", color: "inherit" }}>
+                <button className={style.btnSubmit}>Home</button>
+            </NavLink>
         </div>
     )
 }

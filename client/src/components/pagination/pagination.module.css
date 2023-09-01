@@ -15,7 +15,7 @@
         border: none;
         padding: 5px 10px;
         border-radius: 3px;
-        height: 30px;
+        height: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,16 +23,14 @@
 }
 
 .buttonPag[disabled] {
-        background-color: rgb(1, 43, 1);
+        background-color: rgba(55, 56, 55, 0.555);
         cursor: no-drop;
 }
 
 .inputPag {
         font-family: 'Courier New', Courier, monospace;
         text-align: center;
-        margin-right: 50px;
-        font-size: 30px;
+        margin-right: 20px;
+        font-size: 20px;
         font-weight: 900;
-        -webkit-text-stroke: 0.5px;
-        -webkit-text-stroke-color: aqua;
 }
