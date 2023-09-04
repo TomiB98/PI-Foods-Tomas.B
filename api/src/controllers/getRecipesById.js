@@ -2,7 +2,7 @@ const axios = require('axios')
 const { API_KEY } = process.env
 const { Recipe, Diet } = require('../db')
 
-
+//Returns information for the detail of a specific recipe if the id isn't a number searches in the DB, else in the api
 const getRecipesDetail = async (req, res) => {
 
     const { id } = req.params;

@@ -2,7 +2,7 @@ const axios = require('axios')
 const { API_KEY } = process.env;
 const { Recipe, Diet } = require('../db');
 
-
+// Brings the info from the api
 const getApiInfo = async () => {
     try {
         //const resAxios = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=10`);
@@ -34,6 +34,7 @@ const getApiInfo = async () => {
     }
 }
 
+//Brings the info from the DB
 const getDBInfo = async () => {
     try {
         const dataDB = await Recipe.findAll({
@@ -65,6 +66,7 @@ const getDBInfo = async () => {
     }
 }
 
+//Gathers the info of the api and DB
 const getAllInfo = async () => {
     try {
         const apiInfo = await getApiInfo();
@@ -76,6 +78,7 @@ const getAllInfo = async () => {
     }
 }
 
+//Search the in api by name
 const getApiByName = async (name) => {
 
     try {
@@ -110,6 +113,7 @@ const getApiByName = async (name) => {
     }
 }
 
+//Search in the DB by name
 const getDbByName = async (name) => {
     try {
         const DBInfo = await getDBInfo();
@@ -121,7 +125,7 @@ const getDbByName = async (name) => {
     }
 }
 
-
+//Gathers the info searched by name of the api and DB
 const getInfoByName = async (name) => {
     try {
         const apiByName = await getApiByName(name)

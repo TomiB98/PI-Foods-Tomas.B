@@ -1,5 +1,6 @@
 const { Recipe } = require('../db')
 
+// This controller is for thr creation of a new recipe
 const PostRecipes = async (req, res) => {
 
     try {

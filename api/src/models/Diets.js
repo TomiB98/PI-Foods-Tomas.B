@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 
+//Model for a Diet
 module.exports = (sequelize) => {
     sequelize.define('diet', {
         id: {

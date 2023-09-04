@@ -10,7 +10,11 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+
+//All rutes related to recipes
 router.use('/recipes', recipesRouter)
+
+//All rutes related to Diets
 router.use('/diets', dietsRouter)
 
 module.exports = router;

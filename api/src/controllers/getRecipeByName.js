@@ -1,7 +1,7 @@
 const axios = require('axios')
 const { getInfoByName, getAllInfo } = require('./getApiAndBdInfo')
 
-
+//Manages the info of the recipes, if recives a name search by name, else returns all the recipes
 const getRecipesByName = async (req, res) => {
 
     const { name } = req.query

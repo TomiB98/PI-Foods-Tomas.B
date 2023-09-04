@@ -1,8 +1,7 @@
 const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
+//Model for a new Recipe
 module.exports = (sequelize) => {
-  // defino el modelo
   sequelize.define('recipe', {
     name: {
       type: DataTypes.STRING,
