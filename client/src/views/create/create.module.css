@@ -76,6 +76,16 @@
     color: black;
 }
 
+.inputLong {
+    width:  300px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #252525;
+    background: rgba(253, 253, 253, 0.466);
+    border-radius: 5px;
+    resize: vertical;
+}
+
 .indiv {
     /* margin-bottom: 25px; */
     margin-top: 5px;

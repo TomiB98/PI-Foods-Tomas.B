@@ -135,7 +135,7 @@ const Create = () => {
 
                 <div className={style.indiv}>
                     <label className={style.label}>•Summary: </label>
-                    <input className={style.input} name='summary' value={input.value} onChange={handleChange} placeholder='Describe Recipe' />
+                    <textarea className={style.inputLong} name='summary' value={input.value} onChange={handleChange} placeholder='Describe Recipe' />
                 </div>
                 {error.summary && <p className={style.errors}>{error.summary}</p>}
 
@@ -147,7 +147,7 @@ const Create = () => {
 
                 <div className={style.indiv}>
                     <label className={style.label}>•Steps: </label>
-                    <input className={style.input} name='steps' value={input.value} onChange={handleChange} placeholder='Describe a Recipe Steps' />
+                    <textarea className={style.inputLong} name='steps' value={input.value} onChange={handleChange} placeholder='Describe a Recipe Steps' />
                 </div>
                 {error.steps && <p className={style.errors}>{error.steps}</p>}
 
