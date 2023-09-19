@@ -13,6 +13,8 @@ const Home = () => {
     const allRecipes = useSelector((state) => state.allRecipes)
     const [search, setSearch] = useState('')
 
+    const [currentPage, setCurrentPage] = useState(0);
+
     function handleChange(event) {
         event.preventDefault()
         setSearch(event.target.value)
@@ -32,10 +34,14 @@ const Home = () => {
         dispatch(orderByName(event.target.value));
 
         document.getElementById("orderHealthScore").value = "";
+
+        setCurrentPage(1);
     };
 
     const handleOrderHealthScore = (event) => {
         dispatch(orderByHealthScore(event.target.value));
+
+        setCurrentPage(1);
     };
 
     const handleFilterOrigin = (event) => {
@@ -43,17 +49,19 @@ const Home = () => {
 
         document.getElementById("orderSelect").value = "";
         document.getElementById("orderHealthScore").value = "";
+
+        setCurrentPage(1);
     };
 
     const handleClearFilters = () => {
         dispatch(clearFilter());
     
-        //setCurrentPage(1);
-    
         // Devuelve el valor de los select al origen
         document.getElementById("origin").value = "";
         document.getElementById("orderSelect").value = "";
         document.getElementById("orderHealthScore").value = "";
+
+        setCurrentPage(1);
       };
 
     return (
@@ -96,7 +104,7 @@ const Home = () => {
 
             </div>
 
-            <Cards allRecipes={allRecipes} />
+            <Cards allRecipes={allRecipes} currentPage={currentPage} />
 
         </div>
     )

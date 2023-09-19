@@ -2,13 +2,13 @@ import Card from '../card/card'
 import style from './cards.module.css'
 import { Pagination } from '../pagination/pagination'
 import { useSelector } from 'react-redux';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Cards = () => {
+const Cards = ({ currentPage }) => {
 
     const allRecipes = useSelector((state) => state.allRecipes)
 
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(currentPage || 1)
     const [perPage, setPerPage] = useState(6) //8
 
     const maximo = allRecipes ? allRecipes.length / perPage : 0;
@@ -16,7 +16,10 @@ const Cards = () => {
     //     return <div>...LOADING...</div>
     // }
 
-
+    useEffect(() => {
+        // Update the local 'page' state when 'currentPage' prop changes
+        setPage(currentPage || 1);
+      }, [currentPage]);
 
     return (
         <div >
@@ -51,5 +54,5 @@ const Cards = () => {
 
     )
 }
-
+//page={page} setPage={setPage} maximo={maximo}
 export default Cards;

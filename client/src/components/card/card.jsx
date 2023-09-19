@@ -13,7 +13,7 @@ const Card = ({ id, name, healthScore, steps, image, vegan, glutenFree, dairyFre
         <div onClick={handleNavigate} className={style.card} >
             <div className={style.conteiner}>
                 {/* <Link to={`/detail/${id}`}> */}
-                    <img src={image} alt="" />
+                <img src={image} alt="" />
                 {/* </Link> */}
 
             </div>
@@ -26,10 +26,11 @@ const Card = ({ id, name, healthScore, steps, image, vegan, glutenFree, dairyFre
                 <div className={style.diets}>
                     <div>
                         <h3>•Vegan: {vegan === true ? '☑️' : '❌'}</h3>
-                        <h3>•GlutenFree: {glutenFree === true ? '☑️' : '❌'}</h3>
+                        <h3>•DairyFree: {dairyFree === true ? '☑️' : '❌'}</h3>
+
                     </div>
                     <div>
-                        <h3>•DairyFree: {dairyFree === true ? '☑️' : '❌'}</h3>
+                        <h3>•GlutenFree: {glutenFree === true ? '☑️' : '❌'}</h3>
                         <h3>•Vegetarian : {vegetarian === true ? '☑️' : '❌'}</h3>
                     </div>
                 </div>
