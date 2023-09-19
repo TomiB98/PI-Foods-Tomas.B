@@ -9,7 +9,7 @@ const Create = () => {
     const dispatch = useDispatch()
 
     const [input, setInput] = useState({
-        image: '',
+        image: null,
         name: '',
         summary: '',
         healthScore: '',
@@ -51,10 +51,11 @@ const Create = () => {
     function handleChange(event) {
         if (event.target.name === "image") {
             const imageFile = event.target.files[0];
-            const imageUrl = URL.createObjectURL(imageFile);
+            // const imageUrl = URL.createObjectURL(imageFile);
             setInput({
                 ...input,
-                image: imageUrl,
+                // image: imageUrl,
+                image: imageFile,
             });
         } else {
             setInput({
@@ -73,13 +74,10 @@ const Create = () => {
         }))
     }
 
-    const handleSelectDiet = (event) => {
+    const handleSelectDiet = (event, dietType) => {
         setInput({
             ...input,
-            vegan: event.target.value,
-            glutenFree: event.target.value,
-            dairyFree: event.target.value,
-            vegetarian: event.target.value,
+            [dietType]: event.target.value,
         });
     };
 
@@ -119,7 +117,8 @@ const Create = () => {
                     </div>
                     {input.image && (
                         <img
-                            src={input.image}
+                            // src={input.image}
+                            src={URL.createObjectURL(input.image)}
                             alt=""
                             className={style.uploadedImage}
                         />
@@ -134,12 +133,6 @@ const Create = () => {
                 {error.name && <p className={style.errors}>{error.name}</p>}
 
                 <div className={style.indiv}>
-                    <label className={style.label}>•Summary: </label>
-                    <textarea className={style.inputLong} name='summary' value={input.value} onChange={handleChange} placeholder='Describe Recipe' />
-                </div>
-                {error.summary && <p className={style.errors}>{error.summary}</p>}
-
-                <div className={style.indiv}>
                     <label className={style.label}>•HealthScore: </label>
                     <input className={style.input} name='healthScore' value={input.value} onChange={handleChange} placeholder='Insert healthScore' />
                 </div>
@@ -151,13 +144,19 @@ const Create = () => {
                 </div>
                 {error.steps && <p className={style.errors}>{error.steps}</p>}
 
+                <div className={style.indiv}>
+                    <label className={style.label}>•Summary: </label>
+                    <textarea className={style.inputLong} name='summary' value={input.value} onChange={handleChange} placeholder='Describe Recipe' />
+                </div>
+                {error.summary && <p className={style.errors}>{error.summary}</p>}
+
                 <div className={style.pSelectCont}>
                     <p className={style.label}>•Diets:</p>
                     <div className={style.allSelectCont}>
 
                         <div className={style.selectIndv}>
                             <label >-Vegan-</label>
-                            <select onChange={handleSelectDiet} className={style.select} >
+                            <select onChange={(event) => handleSelectDiet(event, 'vegan')} className={style.select} >
                                 <option value=""> ┅ </option>
                                 <option value='false'>✘</option>
                                 <option value='true'>✔</option>
@@ -166,7 +165,7 @@ const Create = () => {
 
                         <div className={style.selectIndv}>
                             <label >-GlutenFree-</label>
-                            <select onChange={handleSelectDiet} className={style.select} >
+                            <select onChange={(event) => handleSelectDiet(event, 'glutenFree')} className={style.select} >
                                 <option value=""> ┅ </option>
                                 <option value='false'>✘</option>
                                 <option value='true'>✔</option>
@@ -175,7 +174,7 @@ const Create = () => {
 
                         <div className={style.selectIndv}>
                             <label >-DairyFree-</label>
-                            <select onChange={handleSelectDiet} className={style.select}>
+                            <select onChange={(event) => handleSelectDiet(event, 'dairyFree')} className={style.select}>
                                 <option value=""> ┅ </option>
                                 <option value='false'>✘</option>
                                 <option value='true'>✔</option>
@@ -184,10 +183,10 @@ const Create = () => {
 
                         <div className={style.selectIndv}>
                             <label >-Vegetarian-</label>
-                            <select onChange={handleSelectDiet} className={style.select} >
+                            <select onChange={(event) => handleSelectDiet(event, 'vegetarian')} className={style.select} >
                                 <option value=""> ┅ </option>
-                                <option value={false}>✘</option>
-                                <option value={true}>✔</option>
+                                <option value='false'>✘</option>
+                                <option value='true'>✔</option>
                             </select>
                         </div>
                     </div>
