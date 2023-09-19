@@ -8,6 +8,8 @@ export const ADD_RECIPE = 'ADD_RECIPE';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_HEALTHSCORE = 'ORDER_BY_HEALTHSCORE';
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
+
 
 // Obtiene todas las recetas
 
@@ -85,3 +87,9 @@ export const filterByOrigin = (origin) => {
         payload: origin,
     };
 };
+
+export const clearFilter = () => {
+    return {
+        type: 'CLEAR_FILTER',
+    };
+}

@@ -1,4 +1,4 @@
-import { GET_RECIPES, GET_RECIPES_BY_NAME, GET_RECIPES_BY_ID, CLEAR_DETAIL, ADD_RECIPE, ORDER_BY_NAME, ORDER_BY_HEALTHSCORE, FILTER_BY_ORIGIN } from '../redux/actions'
+import { GET_RECIPES, GET_RECIPES_BY_NAME, GET_RECIPES_BY_ID, CLEAR_DETAIL, ADD_RECIPE, ORDER_BY_NAME, ORDER_BY_HEALTHSCORE, FILTER_BY_ORIGIN, CLEAR_FILTER } from '../redux/actions'
 
 let initialState = {
     allRecipes: [],
@@ -41,6 +41,12 @@ function rootReducer(state = initialState, action) {
 
 
         case ORDER_BY_NAME:
+            if (action.payload === "") {
+                return {
+                    ...state,
+                    allRecipes: state.allRecipesCopy,
+                };
+            }
             // Crea una copia de las recetas para ordenarlas sin afectar la original.
             let allRecipesCopy = [...state.allRecipes];
             // Ordena las recetas por nombre de manera ascendente o descendente según el valor proporcionado en la acción.
@@ -83,6 +89,12 @@ function rootReducer(state = initialState, action) {
             };
 
         case ORDER_BY_HEALTHSCORE:
+            if (action.payload === "") {
+                return {
+                    ...state,
+                    allRecipes: state.allRecipesCopy,
+                };
+            }
             // Crea una copia de las recetas para ordenarlas sin afectar la original
             let recipesOrdered = [...state.allRecipes];
 
@@ -103,11 +115,19 @@ function rootReducer(state = initialState, action) {
             };
 
         case FILTER_BY_ORIGIN:
+
+            if (action.payload === "") {
+                return {
+                    ...state,
+                    allRecipes: state.allRecipesCopy,
+                };
+            }
+
             const origin = [...state.allRecipes];
             const originCopy = [...state.allRecipes]
             const originApi = origin.filter((recipe) => { if (isNaN(recipe.idApi) === false) return recipe })
             const originDB = originCopy.filter((recipe) => { if (isNaN(recipe.idApi) === true) return recipe })
-            let aux 
+            let aux
 
             // Filtra las recetas según el origen proporcionado en la acción ("API" o "DB").
 
@@ -121,6 +141,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allRecipes: action.payload === 'NF' ? [...state.allRecipesCopy] : aux
+            };
+
+        case CLEAR_FILTER:
+            return {
+                ...state,
+                allRecipes: state.allRecipesCopy,
             };
 
 

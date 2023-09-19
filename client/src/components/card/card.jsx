@@ -1,14 +1,20 @@
 import style from './card.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Card = ({ id, name, healthScore, steps, image, vegan, glutenFree, dairyFree, vegetarian }) => {
 
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate(`/detail/${id}`)
+    }
+
     return (
-        <div className={style.card} >
+        <div onClick={handleNavigate} className={style.card} >
             <div className={style.conteiner}>
-                <Link to={`/detail/${id}`}>
+                {/* <Link to={`/detail/${id}`}> */}
                     <img src={image} alt="" />
-                </Link>
+                {/* </Link> */}
 
             </div>
             <div>
