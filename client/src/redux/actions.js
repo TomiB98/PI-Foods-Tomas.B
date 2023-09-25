@@ -8,7 +8,9 @@ export const ADD_RECIPE = 'ADD_RECIPE';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_HEALTHSCORE = 'ORDER_BY_HEALTHSCORE';
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
+export const FILTER_BY_DIET = 'FILTER_BY_DIET';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
+
 
 
 // Obtiene todas las recetas
@@ -67,17 +69,17 @@ export const addRecipe = (form) => {
 
 //Filtros : por Nombre, HealthScore, Origen 
 
-export const orderByName = (order) => {
+export const orderByName = (name) => {
     return {
         type: 'ORDER_BY_NAME',
-        payload: order,
+        payload: name,
     };
 };
 
-export const orderByHealthScore = (order) => {
+export const orderByHealthScore = (healthScore) => {
     return {
         type: 'ORDER_BY_HEALTHSCORE',
-        payload: order,
+        payload: healthScore,
     };
 };
 
@@ -85,6 +87,13 @@ export const filterByOrigin = (origin) => {
     return {
         type: 'FILTER_BY_ORIGIN',
         payload: origin,
+    };
+};
+
+export const filterByDiet = (diet) => {
+    return {
+        type: 'FILTER_BY_DIET',
+        payload: diet,
     };
 };
 

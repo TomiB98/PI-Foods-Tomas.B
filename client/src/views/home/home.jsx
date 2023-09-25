@@ -11,6 +11,7 @@ const Home = () => {
 
     const dispatch = useDispatch()
     const allRecipes = useSelector((state) => state.allRecipes)
+    console.log(allRecipes)
     const [search, setSearch] = useState('')
 
     const [currentPage, setCurrentPage] = useState(0);
@@ -40,6 +41,8 @@ const Home = () => {
 
     const handleOrderHealthScore = (event) => {
         dispatch(orderByHealthScore(event.target.value));
+
+        document.getElementById("orderSelect").value = "";
 
         setCurrentPage(1);
     };
@@ -73,10 +76,10 @@ const Home = () => {
                 <div className={style.cont}>
                     <label className={style.label} htmlFor="origin">Filter by Origin: </label>
                     <select className={style.select} name="origin" id="origin" defaultValue='--Select--' onChange={handleFilterOrigin}>
-                        <option value=''>--Select--</option>
-                        <option value="API">API</option>
+                        <option value=''>All Recipes</option>
+                        <option value="API">In the page</option>
                         {/* <option value="NF">Sin filtro</option> */}
-                        <option value="DB">BD</option>
+                        <option value="DB">Created by me</option>
                     </select>
                 </div>
 

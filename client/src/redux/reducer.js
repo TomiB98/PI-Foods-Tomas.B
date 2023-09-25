@@ -5,6 +5,7 @@ let initialState = {
     allRecipesCopy: [],
     createRecipe: [],
     filteredRecipes: [],
+    filteredRecipesCopy: [],
     recipeDetail: {}
 }
 
@@ -14,7 +15,8 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allRecipes: action.payload,
-                allRecipesCopy: action.payload
+                allRecipesCopy: action.payload,
+                filteredRecipes: action.payload
             }
         case GET_RECIPES_BY_NAME:
             return {
@@ -38,13 +40,61 @@ function rootReducer(state = initialState, action) {
                 createRecipe: [...state.createRecipe, action.payload],
             }
 
+        case FILTER_BY_ORIGIN:
 
+            if (action.payload === "") {
+                return {
+                    ...state,
+                    allRecipes: state.allRecipesCopy,
+                    filteredRecipes: state.allRecipesCopy,
+                };
+            }
+
+            if (action.payload === "DB") {
+                return {
+                    ...state,
+                    allRecipes: state.allRecipesCopy.filter((recipe) => typeof recipe.idApi === 'string'
+                    ),
+                    filteredRecipes: state.allRecipesCopy.filter((recipe) => typeof recipe.idApi === 'string'
+                    ),
+                };
+            };
+
+            if (action.payload === "API") {
+                return {
+                    ...state,
+                    allRecipes: state.allRecipesCopy.filter((recipe) => typeof recipe.idApi === 'number'
+                    ),
+                    filteredRecipes: state.allRecipesCopy.filter((recipe) => typeof recipe.idApi === 'number'
+                    ),
+                };
+            };
+
+        // const origin = [...state.allRecipes];
+        // const originCopy = [...state.allRecipes]
+        // const originApi = origin.filter((recipe) => { if (isNaN(recipe.idApi) === false) return recipe })
+        // const originDB = originCopy.filter((recipe) => { if (isNaN(recipe.idApi) === true) return recipe })
+        // let aux
+
+        // // Filtra las recetas según el origen proporcionado en la acción ("API" o "DB").
+
+        // if (action.payload === 'API') {
+        //     aux = originApi
+        // } else if (action.payload === 'DB') {
+        //     aux = originDB
+        // }
+
+        // // Devuelve el estado actualizado con las recetas filtradas por origen.
+        // return {
+        //     ...state,
+        //     allRecipes: action.payload === 'NF' ? [...state.allRecipesCopy] : aux
+        // };
 
         case ORDER_BY_NAME:
             if (action.payload === "") {
                 return {
                     ...state,
-                    allRecipes: state.allRecipesCopy,
+                    allRecipes: state.filteredRecipes,
                 };
             }
             // Crea una copia de las recetas para ordenarlas sin afectar la original.
@@ -92,7 +142,7 @@ function rootReducer(state = initialState, action) {
             if (action.payload === "") {
                 return {
                     ...state,
-                    allRecipes: state.allRecipesCopy,
+                    allProducts: state.filteredProducts,
                 };
             }
             // Crea una copia de las recetas para ordenarlas sin afectar la original
@@ -112,35 +162,6 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allRecipes: recipesOrdered,
-            };
-
-        case FILTER_BY_ORIGIN:
-
-            if (action.payload === "") {
-                return {
-                    ...state,
-                    allRecipes: state.allRecipesCopy,
-                };
-            }
-
-            const origin = [...state.allRecipes];
-            const originCopy = [...state.allRecipes]
-            const originApi = origin.filter((recipe) => { if (isNaN(recipe.idApi) === false) return recipe })
-            const originDB = originCopy.filter((recipe) => { if (isNaN(recipe.idApi) === true) return recipe })
-            let aux
-
-            // Filtra las recetas según el origen proporcionado en la acción ("API" o "DB").
-
-            if (action.payload === 'API') {
-                aux = originApi
-            } else if (action.payload === 'DB') {
-                aux = originDB
-            }
-
-            // Devuelve el estado actualizado con las recetas filtradas por origen.
-            return {
-                ...state,
-                allRecipes: action.payload === 'NF' ? [...state.allRecipesCopy] : aux
             };
 
         case CLEAR_FILTER:
